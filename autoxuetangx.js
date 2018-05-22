@@ -3,7 +3,7 @@
 // @version      0.3
 // @description  自动完成学堂在线刷时间
 // @author       Cubesky, Chengze Fan, Liu Pu
-// @match      *://hitsz.xuetangx.com/courses/*
+// @match      *://*.xuetangx.com/courses/*
 // @run-at      document-end
 // @grant        none
 // ==/UserScript==
