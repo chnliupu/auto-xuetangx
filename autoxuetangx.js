@@ -3,12 +3,25 @@
 // @version      0.3
 // @description  自动完成学堂在线刷时间
 // @author       Cubesky, Chengze Fan, Liu Pu
-// @match      *://*.xuetangx.com/courses/*
+// @match      *://hitsz.xuetangx.com/courses/*
 // @run-at      document-end
 // @grant        none
 // ==/UserScript==
 
 (function() {
+    var autoClick=setInterval(function(){
+        var t = document.title;
+        if (t.match('题')){
+            $("a",$("li[class$=' ']")[$("li[class$=' ']").index($('li.active'))+1]).click();
+            console.log("跳过思考题");
+        }else{
+            console.log("正在播放视频");
+        };
+        if (len =t.split(".").length-1 < 2){
+            $("a",$("li[class$=' ']")[$("li[class$=' ']").index($('li.active'))+1]).click();
+            console.log("跳过章节大标题")
+        }else{};
+    },5000);
     var scountstart=0;
     var cinv=setInterval(function(){
         if($("li").filter(function(index){ return $(this).text()=="标清"; }).length>0){
@@ -71,12 +84,4 @@
     },2000);
     console.log("AutoXuetangx injected successful.");
 
-    var autoClick=setInterval(function(){
-        var t = document.title;
-        if (t.match('题')){
-            $("a",$("li[class$=' ']")[$("li[class$=' ']").index($('li.active'))+1]).click();
-        }else{
-
-        }
-    },5000);
 })();
